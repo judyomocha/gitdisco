@@ -11,15 +11,15 @@ load_dotenv()
 
 
 from oauth2client.service_account import ServiceAccountCredentials
-
-TOKEN = os.environ["TOKEN"]
-SPREADSHEET_KEY = os.environ["SPREADSHEET_KEY"]
+credentials_json = os.environ['GOOGLE_APPLICATION_CREDENTIALS']
+TOKEN = os.environ['TOKEN']
+SPREADSHEET_KEY = os.environ['SPREADSHEET_KEY']
 
 client = discord.Client(intents=discord.Intents.all())
 
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 
-credentials = ServiceAccountCredentials.from_json_keyfile_name('dashin-cross-e2471892d2d2.json', scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_name('GOOGLE_APPLICATION_CREDENTIALS', scope)
 
 gc = gspread.authorize(credentials)
 workbook = gc.open_by_key(SPREADSHEET_KEY)
