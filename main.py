@@ -11,7 +11,7 @@ load_dotenv()
 
 
 from oauth2client.service_account import ServiceAccountCredentials
-credentials_json = os.environ['GOOGLE_APPLICATION_CREDENTIALS']
+credentials_json = os.environ[GOOGLE_APPLICATION_CREDENTIALS]
 TOKEN = os.environ['TOKEN']
 SPREADSHEET_KEY = os.environ['SPREADSHEET_KEY']
 
